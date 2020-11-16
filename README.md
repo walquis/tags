@@ -36,6 +36,48 @@ $ source venv/bin/activate  # Enter your virtual env
 $ pip install -r requirements.txt  # Populate current virtual env with packages
 $ python bin/load_schema.py   # Init your DB structure. Assumes FLASK_ENV=development
 $ python bin/seed.py   # Add data to your DB.  Assumes FLASK_ENV=development
-$ bin/run-flask-webserver.py  # Assumes FLASK_ENV=development
+$ bin/run-flask-webserver.sh  # Assumes FLASK_ENV=development
 ```
 Now visit http://localhost:5555 in your browser.
+
+## A Simulated Project for Collaborating
+
+*Goal*: Your team will exercise your new-found knowledge of git by making changes to this code base.  Below are some suggested tasks.  By divvying them up among your team and implementing them, you will experience the typical challenges associated with working in parallel on a code base.  Your team is free to come up with your own tasks, but keep it simple!  The idea is not to learn new code, but to practice using git for team collaboration.
+
+The ```master``` branch has a working version of the app, runnable as described above.
+
+*Objective*: Keep the app working as you deliver changes to ```master```.
+
+For each task below, a possible solution (aka "reference implementation") lives on a corresponding branch.  Feel free to take a look at the solution branch for ideas/insight into accomplishing the task.  For instance, you can peek at the "Add a config parameter ..." solution by git-diff'ing its ```more_config``` solution branch against master:
+```
+$ git checkout more_config
+$ git diff master
+```
+(For some diffs, you may want to exclude one or more files from the ```git diff``` output. For instance, there's no point in viewing the entire jquery file when looking at ```better_delete_route```...)
+```
+$ git checkout better_delete_route
+$ git diff master -- . ':(exclude)*jquery*.js'
+```
+
+Both *Round One* and *Round Two* solutions are branched from the initial ```master``` branch.  However, you may want to tackle the more-complex *Round Two* tasks after you've completed *Round One*.
+
+### Getting Started on the Project
+
+1. *Someone on your team* - Fork this repo and grant read/write access to the rest of the team, who will each clone to their local machine.  NOTE: Besides this one fork operation, and just to keep things simple, we will not be significantly using any other Github workflow tools in this exercise.  This is a git class, not a github class.
+1. *Whole Team* - Take a look at the Round One tasks (including optionally ```git diff```'ing reference implementations as described above), and decide who will tackle each task.
+1. *Each Member* - Begin working on your assigned task.  You may want to work on a branch.
+1. *Each Member* - As you finish a task, deliver it to ```master``` and ```git push```.  (NOTE: Do a ```git pull``` of ```master```, just in case you're not the first to deliver. In that case, you will need to merge before delivering!)  After delivering to ```master```, and before pushing, don't forget to make sure the website still works.
+
+### Round One Tasks
+- ```view_template``` - Move the HTML into a Jinja2 template
+- ```stylesheet``` - Move CSS into a stylesheet
+- ```tag_input_first``` - Move the tag input above the tag list
+- ```more_config``` - Add a config parameter to set title to 'Hello Sol!'
+- ```delete_route``` - Add a delete route, to where clicking on a tag deletes it
+- ```about_page_with_nav``` - Add an "about" page, with navigation menu
+
+### Round Two Tasks
+- ```layout``` - Add a layout
+- ```peewee``` - Switch the ORM from Flask-Orator to Peewee
+- ```better_delete_route``` - Use a DELETE method to delete tags
+
