@@ -12,7 +12,7 @@ It uses a primitive (and rather obsolete) ORM called [Flask-Orator](https://gith
 
 This app is so barebones and unfinished that it begs for changes.  Using git, you will collaborate with your team to make it better.
 
-## Environment assumptions
+## Environment assumptions *edited again for ANDREW branch
 
 - You have a Python3 installed that is recent enough to have the "-m" option for configuring virtual environments.
 
