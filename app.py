@@ -24,7 +24,9 @@ def show_tags():
     # Note tags=Tag.all() ... another way to pass var to a Jinja2 template
     return render_template('index.html', tags=Tag.all())
 
-
+@app.route('/home', mehtods=['GET'])
+def show_home():
+    return '<div class="topnav"><a class="active" href="#home">Home</a><a href="#news">News</a><a href="#contact">Contact</a><a href="#about">About</a></div><h1>home</h1><p>this is home text</p>'
 
 @app.route('/tags', methods=['POST'])
 def add_tag():
