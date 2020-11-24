@@ -26,7 +26,10 @@ def show_tags():
 
 @app.route('/home', mehtods=['GET'])
 def show_home():
+
     return '<div class="topnav"><a class="active" href="#home">Home</a><a href="#news">News</a><a href="#contact">Contact</a><a href="#about">About</a></div><h1>home</h1><p>this is home test a;ldja;ldjfa;lkdsjf;aldjf;alkjasdfadfadsfadfadsfadfadsfasdfadsfadsfadsfasdfadsfadsfadsfdsf;lajdf</p>'
+
+
 
 @app.route('/tags', methods=['POST'])
 def add_tag():
