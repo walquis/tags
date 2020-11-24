@@ -18,8 +18,12 @@ def show_tags():
     # Flask.g: a way to pass var to a template
     g.setdefault('image', cfg['awesome_image'])
     #embed()
+
+    return "<h1>The Ultimate MOST Tag Manager</h1><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (cfg['awesome_image'],tags_html, form_html)
+
     # Note tags=Tag.all() ... another way to pass var to a Jinja2 template
     return render_template('index.html', tags=Tag.all())
+
 
 
 @app.route('/tags', methods=['POST'])
