@@ -42,32 +42,40 @@ Now visit http://localhost:5555 in your browser.
 
 ## A Simulated Project for Collaborating
 
-*Goal*: Your team will exercise your new-found knowledge of git by making changes to this code base.  Below are some suggested tasks.  By divvying them up among your team and implementing them, you will experience the typical challenges associated with working in parallel on a code base.  Your team is free to come up with your own tasks, but keep it simple!  The idea is not to learn new code, but to practice using git for team collaboration.
+*Goal*: Your team will exercise your new-found knowledge of git by making changes to this code base.  Below are some suggested tasks, solutions, hints for viewing diffs, and a typical task workflow.  As your team begins to deliver completed tasks, you will experience the typical challenges associated with working in parallel on a code base--and practice using git to solve them.  To help keep things simple, feel free to use the sample solutions (see below), rather than coming up with an original implementation; the goal is not primarily to learn new code, but to gain experience using git for team collaboration.
 
 The ```master``` branch has a working version of the app, runnable as described above.
 
-*Objective*: Keep the app working as you deliver changes to ```master```.
+*Objective*: Keep the app working as you deliver each change to ```master```. &nbsp;&nbsp;Don't "break the build"!
 
-For each task below, a possible solution (aka "reference implementation") lives on a corresponding branch.  Feel free to take a look at the solution branch for ideas/insight into accomplishing the task.  For instance, you can peek at the "Add a config parameter ..." solution by git-diff'ing its ```more_config``` solution branch against master:
+### Hints for viewing changes with diff'ing commands:
+1. For each task below, a sample solution lives on a corresponding branch.  Feel free to look at the solution branch (or just use it) for accomplishing the task.  For instance, you can view the "Add a config parameter ..." solution by git-diff'ing its ```more_config``` solution branch against master:
 ```
 $ git checkout more_config
 $ git diff master
 ```
-Hints for diff'ing the sample solutions:
-1. Because (a) all the sample solutions branch from the same point on master, and (b) master will be moving as changes come in, you may want to create a branch to use as a label purely for diff'ing purposes:
+2. Because (a) all the sample solutions branch from the same point on master, and (b) master will be moving as changes come in, you may want to create a branch to use as a label purely for diff'ing purposes:
 ```
 $ git checkout master
 $ git branch master-mark
 $ git checkout view_template
 $ git diff master-mark
 ```
-2. For some branch comparisons, you may desire to exclude one or more files from the ```git diff``` output. For instance, there's no point in viewing the entire jquery file when looking at ```better_delete_route```...)
+3. For some branch comparisons, you may desire to exclude one or more files from the ```git diff``` output. For instance, no need to see the entire jquery file when looking at ```better_delete_route```...)
 ```
 $ git checkout better_delete_route
 $ git diff master -- . ':(exclude)*jquery*.js'
 ```
+4. Consider using ```git show``` if you just want to see a single commit's worth of diffs.  You can do that from any branch in any state--no need to (for instance) get your workspace to a clean state, checkout a particular branch locally and git diff.
+```
+$ git show origin/view_template
+```
+Note that ```git show``` only shows diffs for the commit you specify--not for the whole branch.
 
 Both *Round One* and *Round Two* solutions are branched from the initial ```master``` branch.  However, you may want to tackle the more-complex *Round Two* tasks after you've completed *Round One*.
+
+Making changes:  You can view the solutions as described above and then make the changes to your workspace "manually" by typing or copy-pasting, or you may find it simpler to merge the solution branch over to the branch you're on.
+
 
 ### Getting Started on the Project
 
@@ -88,3 +96,14 @@ Both *Round One* and *Round Two* solutions are branched from the initial ```mast
 - ```layout``` - Add a Jinja layout
 - ```better_delete_route``` - Use a DELETE method (and some Javascript/jQuery) to delete tags
 - ```peewee``` - Switch the ORM from Flask-Orator to Peewee (if you really want to bite off a big chunk!)
+
+### A Possible Workflow
+1. ```git checkout master``` - The branch where your team will rendezvous with changes.
+1. ```git pull origin master``` - Catch your local master up with latest changes from your team.
+1. ```git checkout -b mytask``` - Create and go to a new task branch from master.
+1. ```git merge origin/stylesheet``` - Merge a solution (e.g. stylesheet) over to ```mytask``` (resolving any conflicts).
+1. ```git checkout master``` - Go to master in prep for bringing your stuff in.
+1. ```git pull origin master``` (in case more changes have been pushed by teammates).
+1. (If there *are* more changes, go back to mytask and merge 'em in.  Then tell your team to hold off now, it's your turn!).
+1. ```git merge mytask``` - Assuming you're back on master at this point.
+1. ```git push origin master``` - Share your scintillating creativity with your team.

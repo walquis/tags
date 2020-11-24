@@ -17,8 +17,7 @@ def seed():
     cfg = load_db_config()
     dbname = cfg[FLASK_ENV]['database']
     conn = connect(dbname)
-    f = open('db/seed.sql', 'r')
-    for sql in f:
-      conn.execute(sql)
-    f.close() 
+    with open('db/seed.sql', 'r') as f:
+      conn.executescript( f.read() )
+    conn.commit()
     conn.close
