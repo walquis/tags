@@ -20,6 +20,10 @@ def show_tags():
     #embed()
     return "<h1>The Ultimate Tag Manager</h1><h1>Hello World!</h1><img src=\"%s\" style=\"width:300px\"><div>%s</div><div>%s</div>" % (cfg['awesome_image'],tags_html, form_html)
 
+@app.route('/about', methods=['GET'])
+def show_about():
+    return '<div class="topnav"><a class="active" href="#home">Home</a><a href="#news">News</a><a href="#contact">Contact</a><a href="#about">About</a></div><h1>The about page</h1><p>this is about text. I dont know what this is about. It just shows tags I guess. with a picture from nasa'
+
 @app.route('/tags', methods=['POST'])
 def add_tag():
     new_tag = request.form['tag-name']
