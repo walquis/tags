@@ -4,6 +4,7 @@
 This exercise assumes you have ...
 1. A [GitHub](https://github.com){:target="_blank"} account.
 1. Python3 3.5 or newer, so that the builtin 'venv' module can be used for configuring virtual environments.
+1. Installed [SourceTree](https://sourcetreeapp.com){:target="_blank"}, an GUI for visualizing Git repos.
 
 ## Fork & clone the repo
 
@@ -55,7 +56,7 @@ To stop the app: At your shell prompt, hold down the Ctrl key and press 'c'.
 ### Explore the code - SPICY
 So what is running, exactly?  You're on the `master` branch of this repo, and the webserver you started up is hosting an empty application.
 
-Let's work our way through the set of sample changes by checking out the corresponding branches, starting from `master` and progressing to the tip of the `sample-solution` branch.  For viewing changes, see the discussion further down in the [README](https://github.com/walquis/tags).  SourceTree or similar is handy.
+Let's work our way through the set of sample changes by checking out the corresponding branches, starting from `master` and progressing to the tip of the `sample-solution` branch.  See [Viewing Changes](viewing-changes){:target="_blank"} for hints and tips.
 
 #### hello-world
 Check out the `hello-world` branch, and start the app.  (I find it handy to have multiple Terminal windows--one for running the git commands, and one for running the default Django webserver, which automagically reloads when it sees changes).  If you've done the setup described above, your Terminal session would look something like this:
@@ -94,7 +95,7 @@ After checking out a couple more changes having to do with adding the ability to
 
 #### A side note - Debugging with [IPython](https://ipython.readthedocs.io/en/stable/){:target="_blank"}
 
-On the `sample-solution` branch, notice the commented-out ```# embed()``` (as well as the ```from IPython import embed```).  Try uncommenting this line, and refreshing the browser (this is assuming your webserver picks up the change automatically; if not, restart the webserver first).
+On the `sample-solution` branch, open tags/views.py, and notice the commented-out ```# embed()``` (as well as the ```from IPython import embed```).  Try uncommenting the ```embed()``` and refreshing the browser (assuming your webserver picks up the change automatically; if not, restart the webserver first).
 
 Code execution now stops at the embed() breakpoint.  You can examine variables by typing them (for instance `request.method`), or run arbitrary code that makes sense in this context.
 
@@ -125,10 +126,9 @@ open tags.html  # Should pop open an empty page in your browser.
 ```
 
 ### Explore the code - MILD
-You're on the `master` branch of this repo, and the tags.html page you opened is where you'll build up some static HTML.  The only "webserver" is your filesystem (which, although very simple does not get you very far, as we will see).
+You're on the `master` branch of this repo, and the mild/tags.html page you opened is where you'll build up some static HTML.  The only "webserver" is your filesystem (which, although very simple does not get you very far, as we will see).
 
-Let's work our way through the set of sample changes by checking out the corresponding branches, starting from `master` and progressing to the tip of the `10-mild-sample-solution` branch (the "mild" branches are prefixed with a number and "-mild-"). For viewing changes, SourceTree or similar is handy; see the [README](https://github.com/walquis/tags), further down that page.
-
+Let's work our way through the set of sample changes by checking out the corresponding branches, starting from `master` and progressing to the tip of the `10-mild-sample-solution` branch (the "mild" branches are prefixed with a number and "-mild-").  See [Viewing Changes](viewing-changes){:target="_blank"} for hints and tips.
 
 #### 1-mild-hello-world
 Check out the `hello-world` branch:

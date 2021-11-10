@@ -1,17 +1,11 @@
-<style>
-  td { text-align: center; }
-  tr.bb { border-bottom: 2px solid black !important; }
-  .bb table { border-collapse:collapse; }
-</style>
-
-# Student Handout - Objects and Trees
+# Objects and Trees Handout
 
 ## Agenda
 1. Intro & Setting Up Your Environment
 1. Basic Unix & Shell
+1. Git vs Github - Which commands go with each?
 1. Git Data Model - The Three Objects
 1. Managing Local Changes - The Three Trees
-1. Git vs Github - Know the difference
 
 ## Intro & Setting up your environment
 Start with the forked-and-cloned repo.  See the [Prework](prework) for fork & clone instructions.
@@ -37,7 +31,7 @@ This will set you up with cool shortcuts to see what's going on with your repo s
 ```
 $ cat bin/git-aliases.sh
 $ ls -l bin/*.sh
-$ bin/git-aliases.sh   # Activate aliases in current shell
+$ source bin/git-aliases.sh   # Activate aliases in current shell
 $ bin/append-aliases-to-profile.sh  # So they'll be part of future shells.
 $ adog  # This should work now.
 ```
@@ -312,6 +306,13 @@ Test your understanding:
 - When would each variation of `git reset` come in handy?
 
 ### Another picture of how `"git reset --soft/mixed/hard <ToThisCommit>"` &nbsp;works
+
+<style>
+  /* For the git-versus-github table */
+  td { text-align: center; }
+  tr.bb { border-bottom: 2px solid black !important; }
+  .bb table { border-collapse:collapse; }
+</style>
 
 <!-- Github Markdown doesn't do colspan -->
 <table class="bb">
